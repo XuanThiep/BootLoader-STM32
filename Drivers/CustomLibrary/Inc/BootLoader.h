@@ -84,7 +84,7 @@
 
 /***************************** Define BootLoader Connection *************************************/
 
-/* UART for Bootloader Using Low level Driver */
+/* UART for Bootloader */
 #define	UART_BOOT							USART1
 #define UART_BOOT_BAUD						(1000000)
 
@@ -105,7 +105,7 @@
 #define UART_BOOT_FORCE_RESET				__USART1_FORCE_RESET
 #define UART_BOOT_RELEASE_RESET				__USART1_RELEASE_RESET
 
-/* UART for Debug Using HAL Driver */
+/* UART for Debug  */
 #define	UART_DEBUG							USART6
 #define	UART_DEBUG_BAUD						(1000000)
 

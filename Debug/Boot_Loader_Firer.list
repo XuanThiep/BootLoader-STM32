@@ -23,27 +23,27 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   ALLOC
   9 .ARM.attributes 0000002e  00000000  00000000  00020070  2**0
                   CONTENTS, READONLY
- 10 .debug_info   000126aa  00000000  00000000  0002009e  2**0
+ 10 .debug_info   000123e3  00000000  00000000  0002009e  2**0
                   CONTENTS, READONLY, DEBUGGING
- 11 .debug_abbrev 00002a83  00000000  00000000  00032748  2**0
+ 11 .debug_abbrev 00002a74  00000000  00000000  00032481  2**0
                   CONTENTS, READONLY, DEBUGGING
- 12 .debug_loc    0000370a  00000000  00000000  000351cb  2**0
+ 12 .debug_loc    0000370a  00000000  00000000  00034ef5  2**0
                   CONTENTS, READONLY, DEBUGGING
- 13 .debug_aranges 00000708  00000000  00000000  000388d8  2**3
+ 13 .debug_aranges 00000708  00000000  00000000  00038600  2**3
                   CONTENTS, READONLY, DEBUGGING
- 14 .debug_ranges 00000aa0  00000000  00000000  00038fe0  2**3
+ 14 .debug_ranges 00000aa0  00000000  00000000  00038d08  2**3
                   CONTENTS, READONLY, DEBUGGING
- 15 .debug_line   00004aec  00000000  00000000  00039a80  2**0
+ 15 .debug_line   00004ad5  00000000  00000000  000397a8  2**0
                   CONTENTS, READONLY, DEBUGGING
- 16 .debug_str    000035d2  00000000  00000000  0003e56c  2**0
+ 16 .debug_str    000033d5  00000000  00000000  0003e27d  2**0
                   CONTENTS, READONLY, DEBUGGING
- 17 .comment      0000007c  00000000  00000000  00041b3e  2**0
+ 17 .comment      0000007c  00000000  00000000  00041652  2**0
                   CONTENTS, READONLY
- 18 .debug_frame  00001984  00000000  00000000  00041bbc  2**2
+ 18 .debug_frame  00001974  00000000  00000000  000416d0  2**2
                   CONTENTS, READONLY, DEBUGGING
- 19 .stab         00000084  00000000  00000000  00043540  2**2
+ 19 .stab         00000084  00000000  00000000  00043044  2**2
                   CONTENTS, READONLY, DEBUGGING
- 20 .stabstr      00000117  00000000  00000000  000435c4  2**0
+ 20 .stabstr      00000117  00000000  00000000  000430c8  2**0
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -521,7 +521,7 @@ void HAL_UART_MspInit(UART_HandleTypeDef *huart)
 		UART_DEBUG_GPIO_CLK_ENABLE();
  800065e:	4c30      	ldr	r4, [pc, #192]	; (8000720 <HAL_UART_MspInit+0xd0>)
 
-		/* Set clock source for UART6 */
+		/* Set clock source for UART Debug */
 		RCC_PeriphClkInit.PeriphClockSelection = UART_DEBUG_RCC_CLOCK;
 		RCC_PeriphClkInit.Usart6ClockSelection = UART_DEBUG_CLK_SOURCE;
 		HAL_RCCEx_PeriphCLKConfig(&RCC_PeriphClkInit);
@@ -6248,6 +6248,12 @@ void UsageFault_Handler(void)
  8002898:	4770      	bx	lr
 
 0800289a <PendSV_Handler>:
+
+/**
+ * @brief This function handles Pendable request for system service.
+ */
+void PendSV_Handler(void)
+{
  800289a:	4770      	bx	lr
 
 0800289c <SysTick_Handler>:
@@ -6271,15 +6277,7 @@ void SysTick_Handler(void)
  80028a2:	e8bd 4008 	ldmia.w	sp!, {r3, lr}
 	HAL_SYSTICK_IRQHandler();
  80028a6:	f7fe b94a 	b.w	8000b3e <HAL_SYSTICK_IRQHandler>
-
-080028aa <TIM8_TRG_COM_TIM14_IRQHandler>:
-
-/**
- * @brief This function handles TIM8 trigger and commutation interrupts and TIM14 global interrupt.
- */
-void TIM8_TRG_COM_TIM14_IRQHandler(void)
-{
- 80028aa:	4770      	bx	lr
+	...
 
 080028ac <SystemInit>:
   */

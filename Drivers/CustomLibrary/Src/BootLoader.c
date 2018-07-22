@@ -96,7 +96,7 @@ void HAL_UART_MspInit(UART_HandleTypeDef *huart)
 		/* Enable Clock for GPIO TX of UART Debug */
 		UART_DEBUG_GPIO_CLK_ENABLE();
 
-		/* Set clock source for UART6 */
+		/* Set clock source for UART Debug */
 		RCC_PeriphClkInit.PeriphClockSelection = UART_DEBUG_RCC_CLOCK;
 		RCC_PeriphClkInit.Usart6ClockSelection = UART_DEBUG_CLK_SOURCE;
 		HAL_RCCEx_PeriphCLKConfig(&RCC_PeriphClkInit);
@@ -120,7 +120,7 @@ void HAL_UART_MspInit(UART_HandleTypeDef *huart)
 		/* Enable Clock for GPIO TX of UART BOOT */
 		UART_BOOT_GPIO_CLK_ENABLE();
 
-		/* Set clock source for UART6 */
+		/* Set clock source for UART BOOT */
 		RCC_PeriphClkInit.PeriphClockSelection = UART_BOOT_RCC_CLOCK;
 		RCC_PeriphClkInit.Usart1ClockSelection = UART_BOOT_CLK_SOURCE;
 		HAL_RCCEx_PeriphCLKConfig(&RCC_PeriphClkInit);
